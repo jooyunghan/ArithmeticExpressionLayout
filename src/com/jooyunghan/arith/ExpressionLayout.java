@@ -11,10 +11,14 @@ public class ExpressionLayout {
 		test("1+1");
 		test("1");
 		test("x/(1+y)");
+		test("1/x/y");
 		test("1-(203-2)");
+		test("3-2/(1/x)");
+		test("z*(y/x-z/(1-x)/(y/x))");		
 	}
 
 	private static void test(String string) {
+		System.out.println("===============");
 		System.out.println(string + " => ");
 		try {
 			print(Parser.parse(string));

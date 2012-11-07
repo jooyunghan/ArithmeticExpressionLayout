@@ -21,6 +21,11 @@ public class Term implements Expression {
 	}
 
 	@Override
+	public int baseline() {
+		return 0;
+	}
+
+	@Override
 	public int width() {
 		return value.toString().length();
 	}

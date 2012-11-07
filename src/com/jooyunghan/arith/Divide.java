@@ -6,12 +6,15 @@ public class Divide implements Expression {
 	private Expression e2;
 	private int w;
 	private int h;
+	private int baseline;
 
 	public Divide(Expression e1, Expression e2) {
 		this.e1 = e1;
 		this.e2 = e2;
-		this.w = Math.max(e1.width(), e2.width()) + 2; // padding 1 for both ends
+		this.w = Math.max(e1.width(), e2.width()) + 2; // padding 1 for both
+														// ends
 		this.h = e1.height() + e2.height() + 1;
+		this.baseline = e1.height();
 	}
 
 	@Override
@@ -21,7 +24,7 @@ public class Divide implements Expression {
 		} else if (y == e1.height()) {
 			return '-';
 		} else {
-			return dispatch(e2, x, y-e1.height()-1);
+			return dispatch(e2, x, y - e1.height() - 1);
 		}
 	}
 
@@ -31,13 +34,18 @@ public class Divide implements Expression {
 		if (x < pad || x >= ew + pad) {
 			return ' ';
 		} else {
-			return e.print(x-pad, y);
+			return e.print(x - pad, y);
 		}
 	}
 
 	@Override
 	public int height() {
 		return h;
+	}
+
+	@Override
+	public int baseline() {
+		return baseline;
 	}
 
 	@Override
