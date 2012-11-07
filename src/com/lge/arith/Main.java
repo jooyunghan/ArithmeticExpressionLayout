@@ -6,8 +6,8 @@ import com.lge.arith.expr.Expression;
 
 public class Main {
 	public static void main(String[] args) {
-		String[] testCases = new String[] { "1", "2*1", "3+2*1", "3-2-1",
-				"3*(2+1)", "3-(2-1)", "1/x", "1/xyz", "12/xyz", "1/x/y",
+		String[] testCases = new String[] { "1", "2*1", "3-2-1",
+				"3*(2+1)", "3-(2-1)", "1/x", "23/xyz", "1/x/y",
 				"xy/(1-x)", "3-2/(1/x)", "z*(y/x-z/(1-x)/(y/x))"
 
 		};
