@@ -13,6 +13,7 @@ import com.lge.arith.expr.Term;
 
 /**
  * Parser parses the arithmetic expression according to the following grammar.
+ * Grammar is written in PEG(Parsing expression grammar) style.
  * 
  * <pre>
  * expression = sum
@@ -25,14 +26,15 @@ public class Parser {
 	private StreamTokenizer st;
 
 	/**
-	 * @param string expression to be parsed
+	 * @param string
+	 *            expression to be parsed
 	 * @return Expression object, which is a parse tree.
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static Expression parse(String string) throws IOException {
 		return new Parser(string).expression();
 	}
-	
+
 	private Parser(String string) {
 		st = new StreamTokenizer(new StringReader(string));
 		st.ordinaryChar('/');
