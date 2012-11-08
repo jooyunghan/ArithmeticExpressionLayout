@@ -9,7 +9,7 @@ public class Term implements Expression {
 	}
 
 	@Override
-	public char print(int x, int y) {
+	public char getChar(int x, int y) {
 		if (x < value.length())
 			return value.charAt(x);
 		return 'X';

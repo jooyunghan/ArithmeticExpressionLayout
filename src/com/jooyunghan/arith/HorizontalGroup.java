@@ -44,7 +44,7 @@ public abstract class HorizontalGroup implements Expression {
 	}
 
 	@Override
-	public char print(int x, int y) {
+	public char getChar(int x, int y) {
 		for (Expression e : es) {
 			if (x < e.width()) {
 				return dispatch(e, x, y);
@@ -59,7 +59,7 @@ public abstract class HorizontalGroup implements Expression {
 		if (y < pad || y >= pad + e.height()) {
 			return ' ';
 		} else {
-			return e.print(x, y - pad);
+			return e.getChar(x, y - pad);
 		}
 	}
 

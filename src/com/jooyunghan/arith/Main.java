@@ -2,7 +2,7 @@ package com.jooyunghan.arith;
 
 import java.io.IOException;
 
-public class ExpressionLayout {
+public class Main {
 
 	/**
 	 * @param args
@@ -34,7 +34,7 @@ public class ExpressionLayout {
 	private static void print(Expression e) {
 		for (int y = 0; y < e.height(); y++) {
 			for (int x = 0; x < e.width(); x++) {
-				System.out.print(e.print(x, y));
+				System.out.print(e.getChar(x, y));
 			}
 			System.out.println();
 		}

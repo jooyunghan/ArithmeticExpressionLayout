@@ -18,7 +18,7 @@ public class Divide implements Expression {
 	}
 
 	@Override
-	public char print(int x, int y) {
+	public char getChar(int x, int y) {
 		if (y < e1.height()) {
 			return dispatch(e1, x, y);
 		} else if (y == e1.height()) {
@@ -34,7 +34,7 @@ public class Divide implements Expression {
 		if (x < pad || x >= ew + pad) {
 			return ' ';
 		} else {
-			return e.print(x - pad, y);
+			return e.getChar(x - pad, y);
 		}
 	}
 
