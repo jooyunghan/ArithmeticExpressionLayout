@@ -8,11 +8,15 @@ public class ExpressionLayout {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		test("1+1");
 		test("1");
-		test("x/(1+y)");
+		test("2*1");
+		test("3-2-1");
+		test("3*(2+1)");
+		test("3-(2-1)");
+		test("1/x");
+		test("23/xyz");
+		test("xy/(1-x)");
 		test("1/x/y");
-		test("1-(203-2)");
 		test("3-2/(1/x)");
 		test("z*(y/x-z/(1-x)/(y/x))");		
 	}
