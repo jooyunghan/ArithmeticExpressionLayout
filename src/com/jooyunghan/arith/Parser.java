@@ -24,12 +24,12 @@ public class Parser {
 	}
 
 	// expression = sum
-	public Expression expression() throws IOException {
+	private Expression expression() throws IOException {
 		return sum();
 	}
 
 	// sum = product (('+'|'-') product)*
-	Expression sum() throws IOException {
+	private Expression sum() throws IOException {
 		Expression result = product();
 		while (true) {
 			st.nextToken();
@@ -46,7 +46,7 @@ public class Parser {
 	}
 
 	// product = term (('*'|'/') term)*
-	Expression product() throws IOException {
+	private Expression product() throws IOException {
 		Expression result = term();
 		while (true) {
 			st.nextToken();
@@ -63,7 +63,7 @@ public class Parser {
 	}
 
 	// term = number | '(' expression ')'
-	Expression term() throws IOException {
+	private Expression term() throws IOException {
 		int ttype = st.nextToken();
 		if (ttype == StreamTokenizer.TT_NUMBER) {
 			return new Term((int)st.nval);
