@@ -26,20 +26,9 @@ public abstract class HorizontalGroup implements Expression {
 													// beyond the job of
 													// parsing-and-layout.
 
-		w = 0;
-		for (Expression e : es) {
-			w += e.width();
-		}
-		h = 0;
-		for (Expression e : es) {
-			if (e.height() > h)
-				h = e.height();
-		}
-		baseline = 0;
-		for (Expression e : es) {
-			if (e.baseline() > baseline)
-				baseline = e.baseline();
-		}
+		w = Util.sum(es, "width");
+		h = Util.max(es, "height");
+		baseline = Util.max(es, "baseline");
 	}
 
 	private void add(Expression e, boolean needsParen) {
