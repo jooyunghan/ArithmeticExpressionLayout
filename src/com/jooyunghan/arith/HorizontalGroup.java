@@ -12,10 +12,19 @@ public abstract class HorizontalGroup implements Expression {
 
 	public HorizontalGroup(Expression e1, Expression e2, String op) {
 		add(e1, precedence() > e1.precedence());
-		es.add(new Term(" " + op + " "));
-		add(e2,
-				precedence() > e2.precedence()
-						|| (precedence() == e2.precedence() && op.equals("-")));
+		es.add(new Term(" " + op + " ")); // Term is used as a static text in
+											// this case.
+		add(e2, precedence() >= e2.precedence()); // left-to-right, therefore,
+													// if right hand operand has
+													// equal precedence we need
+													// to put additional
+													// parentheses. In 1+(1+1)
+													// case, removing the
+													// unnecessary parentheses
+													// requires transforming the
+													// parse tree, which is
+													// beyond the job of
+													// parsing-and-layout.
 
 		w = 0;
 		for (Expression e : es) {
