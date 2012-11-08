@@ -10,9 +10,7 @@ public class Term implements Expression {
 
 	@Override
 	public char getChar(int x, int y) {
-		if (x < value.length())
-			return value.charAt(x);
-		return 'X';
+		return value.charAt(x);
 	}
 
 	@Override
@@ -27,7 +25,7 @@ public class Term implements Expression {
 
 	@Override
 	public int width() {
-		return value.toString().length();
+		return value.length();
 	}
 
 	@Override
